@@ -1,0 +1,124 @@
+<mat-drawer-container>
+  <mat-drawer #drawer mode="over" position="end" [autoFocus]="false">
+    <section class="side-menu">
+
+      <mat-toolbar color="primary" class="header-toolbar"></mat-toolbar>
+
+      <div class="content">
+        <img src="assets/img/emptyprofile.png" class="picture mat-elevation-z8">
+        <div class="title">
+          <h2>&#64;{{user.username}}</h2>
+          <h4>{{user.email}}</h4>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="actions">
+          <button mat-icon-button color="primary" [routerLink]="['/app/settings']" (click)="drawer.toggle()">
+            <mat-icon>tune</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="commonService.logout()">
+            <mat-icon>logout</mat-icon>
+          </button>
+        </div>
+        <mat-divider></mat-divider>
+        <div style="display: flex; flex-direction: column; width: 100%; height: 100%; justify-content: space-around;">
+          <div class="user-info">
+            <mat-icon style="font-size: 100px; width: 100px; height: 100px; color: rgb(150,150,150);">workspace_premium</mat-icon>
+            <div>
+              <h2>Xomano</h2>
+              <h4>4720</h4>
+            </div>
+          </div>
+          <div class="user-info">
+            <mat-icon style="font-size: 100px; width: 100px; height: 100px; color: rgb(150,150,150);">attach_money</mat-icon>
+            <div>
+              <h1>130 IC</h1>
+            </div>
+          </div>
+          <div class="user-info">
+            <mat-icon style="font-size: 100px; width: 100px; height: 100px; color: rgb(150,150,150);">workspace_premium</mat-icon>
+            <div>
+              <h2>Xomano</h2>
+              <h4>4720</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <mat-toolbar class="footer-toolbar">
+        <span>© 2023 Infinity Aion Private Server</span>
+      </mat-toolbar>
+
+    </section>
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-toolbar color="primary" class="main-toolbar mat-elevation-z8">
+      <section class="content">
+        <div class="link-toolbar">
+          <div class="common-link">
+            <button mat-button color="accent" [routerLink]="['/app/dashboard']">
+              <mat-icon>dashboard</mat-icon>
+              DASHBOARD
+            </button>
+            <button mat-button color="accent">
+              <mat-icon>military_tech</mat-icon>
+              RANKING
+            </button>
+            <button mat-button color="accent" [routerLink]="['/app/discussions']">
+              <mat-icon>forum</mat-icon>
+              DISCUSSÕES
+            </button>
+            <button mat-button color="accent" [routerLink]="['/app/schedule']">
+              <mat-icon>today</mat-icon>
+              AGENDA
+            </button>
+            <button mat-flat-button color="accent">
+              <mat-icon>attach_money</mat-icon>
+              COMPRAR IC
+            </button>
+            <button mat-flat-button color="accent">
+              <mat-icon>storefront</mat-icon>
+              LOJA
+            </button>
+            <button mat-button color="accent">
+              <mat-icon>history</mat-icon>
+              HISTÓRICO
+            </button>
+          </div>
+          <div>
+            <button mat-icon-button style="margin-right: 30px;" [matMenuTriggerFor]="menu" (click)="readNotifications()">
+              <mat-icon [matBadge]="badgeNotifications" matBadgeColor="warn" aria-hidden="false">notifications_none</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              @if (flashNotifications) {
+                @for (item of notifications; track item.id) {
+                  <button mat-menu-item>
+                    <mat-icon>notifications</mat-icon>
+                    <div>
+                      <h2 style="margin: 0;">{{item.title}}</h2>
+                      <span style="font-size: 14px;">{{item.content.length>42 ? (item.content | slice:0:42)+'...' : item.content}}</span>
+                    </div>
+                  </button>
+                  <mat-divider></mat-divider>
+                }
+              } @else {
+                <h2 style="text-align: center;">Sem novas notificações</h2>
+                <mat-divider></mat-divider>
+              }
+              <button mat-raised-button color="primary" style="width: 90%; margin: 10px 5% 5px 5%;" [routerLink]="['/app/notifications']">
+                VER TODAS AS NOTIFICAÇÕES
+              </button>
+            </mat-menu>
+            <button mat-fab extended color="accent" (click)="drawer.toggle()">
+              <mat-icon>person_outline</mat-icon>
+              {{user.username}}
+            </button>
+          </div>
+        </div>
+
+      </section>
+    </mat-toolbar>
+    <section class="viewport">
+      <router-outlet></router-outlet>
+    </section>
+  </mat-drawer-content>
+</mat-drawer-container>

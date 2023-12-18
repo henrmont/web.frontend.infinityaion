@@ -1,0 +1,26 @@
+@if (discussion.closed) {
+  <button mat-fab color="primary" class="comment" disabled>
+    <mat-icon>chat</mat-icon>
+  </button>
+} @else {
+  <button mat-fab color="primary" class="comment">
+    <mat-icon>chat</mat-icon>
+  </button>
+}
+<div class="vitrine">
+  <div class="info">
+    <div>
+      <mat-icon>more_time</mat-icon>
+      <span><strong>Criado em:</strong> {{discussion.created_at | date: 'dd/MM/YYY'}}  as {{discussion.created_at | date: 'HH:mm'}}</span>
+    </div>
+    <div>
+      <mat-icon>update</mat-icon>
+      <span><strong>Atualizado em:</strong> {{discussion.updated_at | date: 'dd/MM/YYY'}}  as {{discussion.updated_at | date: 'HH:mm'}}</span>
+    </div>
+  </div>
+  <div class="discussion mat-elevation-z8" [style]="discussion.image ? discussion.image : 'background-image: url(assets/img/topic.png);'"></div>
+  <p class="title">{{discussion.title}}</p>
+</div>
+<mat-divider></mat-divider>
+<div class="content" [innerHTML]="discussion.content"></div>
+<mat-divider></mat-divider>

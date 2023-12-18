@@ -1,0 +1,10 @@
+<form [formGroup]="formulario" class="box mat-elevation-z8" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Digite um email válido">
+    <mat-icon matSuffix>mail_outline</mat-icon>
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+  <button mat-raised-button type="submit" color="primary">RECUPERAR CONTA</button>
+  <button mat-raised-button type="button" color="accent" style="margin-top: 20px;" [routerLink]="['/login/account']">VOLTAR</button>
+</form>

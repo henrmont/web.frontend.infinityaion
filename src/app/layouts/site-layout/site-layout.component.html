@@ -1,0 +1,35 @@
+<section>
+  <mat-toolbar class="header" style="background: none;">
+    <div class="race-info">
+      <mat-icon style="color: red; margin-right: 10px;">cancel</mat-icon>
+      STATUS: OFFLINE
+      <!-- <div class="race">
+        <img src="assets/img/elyoslogo.webp">
+        <span>ELYOS (50%)</span>
+      </div>
+      <div class="race">
+        <img src="assets/img/asmologo.webp">
+        <span>ASMODIANS (50%)</span>
+      </div> -->
+    </div>
+    <div class="buttons">
+      <button mat-stroked-button color="primary" style="border-radius: 30px;" [routerLink]="['/create/account']" disabled>
+        <mat-icon>person_add</mat-icon>
+        CRIAR CONTA
+      </button>
+      <button mat-fab extended color="primary" [routerLink]="['/login/account']" disabled>
+        <mat-icon>login</mat-icon>
+        ENTRAR
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <mat-toolbar class="footer" color="primary">
+    <span>© 2023 Infinity Aion Private Server</span>
+    <span>All other trademarks are property of their respective owners.</span>
+  </mat-toolbar>
+</section>

@@ -1,0 +1,17 @@
+.box {
+  width: 350px;
+  height: auto;
+  padding: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+
+  mat-form-field {
+    margin-bottom: 20px;
+  }
+
+  mat-hint {
+    color: red !important;
+  }
+}

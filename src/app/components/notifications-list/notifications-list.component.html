@@ -1,0 +1,10 @@
+<mat-list>
+  @for (item of notifications; track item.id) {
+    <mat-list-item>
+      <mat-icon matListItemIcon>notifications</mat-icon>
+      <div matListItemTitle>{{item.title}} - {{item.created_at | date: 'dd/MM/YYYY'}} </div>
+      <div matListItemLine>{{item.content}}</div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  }
+</mat-list>

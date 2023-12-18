@@ -1,0 +1,26 @@
+@for (item of comments; track item.id) {
+  <mat-card class="card">
+    <mat-card-header>
+      <div mat-card-avatar [style]="item.user.image ? item.user.image : 'background-image: url(assets/img/emptyprofile.png);'" class="image"></div>
+      <mat-card-title>{{item.user.username}}</mat-card-title>
+      <mat-card-subtitle>{{item.created_at | date: 'dd/MM/YYY'}}  as {{item.created_at | date: 'HH:mm'}}</mat-card-subtitle>
+    </mat-card-header>
+    @if (item.quote) {
+      <div class="quote mat-elevation-z1"><p>{{item.quote.content}}</p></div>
+    }
+    <mat-card-content>
+      <p>{{item.content}}</p>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-icon-button color="primary" [disabled]="item.topic.closed">
+        <mat-icon>reply</mat-icon>
+      </button>
+      @if (user.id == item.user.id) {
+        <button mat-icon-button color="warn" [disabled]="item.topic.closed">
+          <mat-icon>delete</mat-icon>
+        </button>
+      }
+    </mat-card-actions>
+  </mat-card>
+}
+

@@ -1,0 +1,33 @@
+@for (item of topics; track item.id) {
+  <div class="discussion mat-elevation-z8" [style]="item.image ? item.image :'background-image: url(assets/img/topic.png);'">
+    <div class="header-bar">
+      <div class="info">
+        <div>
+          <mat-icon>more_time</mat-icon>
+          <span><strong>Criado em:</strong> {{item.created_at | date: 'dd/MM/YYY'}}  as {{item.created_at | date: 'HH:mm'}}</span>
+        </div>
+        <div>
+          <mat-icon>update</mat-icon>
+          <span><strong>Atualizado em:</strong> {{item.updated_at | date: 'dd/MM/YYY'}}  as {{item.updated_at | date: 'HH:mm'}}</span>
+        </div>
+      </div>
+      <div class="status">
+        <button mat-button disabled style="color: rgb(150,150,150)">
+          <mat-icon style="color: rgb(150,150,150)">comment</mat-icon>
+          {{item.comments_count}}
+        </button>
+        <button mat-button disabled>
+          @if (item.closed) {
+            <mat-icon style="color: rgb(150,150,150)">lock</mat-icon>
+          } @else {
+            <mat-icon style="color: rgb(150,150,150)">lock_open</mat-icon>
+          }
+        </button>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <p>{{item.title}}</p>
+      <button mat-raised-button color="primary" [routerLink]="['/app/discussions', item.id]">VER</button>
+    </div>
+  </div>
+}

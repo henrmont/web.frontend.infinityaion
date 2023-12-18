@@ -1,0 +1,15 @@
+<form [formGroup]="formulario" class="box mat-elevation-z8" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Senha</mat-label>
+    <input matInput placeholder="Digite a senha">
+    <mat-icon matSuffix>password</mat-icon>
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Confirmar senha</mat-label>
+    <input matInput placeholder="Repita a senha">
+    <mat-icon matSuffix>password</mat-icon>
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+  <button mat-raised-button type="submit" color="primary">REDEFINIR SENHA</button>
+</form>
