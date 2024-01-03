@@ -1,4 +1,4 @@
-<section>
+<section style="background-image: url(assets/img/aionbg.png);">
   <mat-toolbar class="header" style="background: none;">
     <div class="race-info">
       <mat-icon style="color: red; margin-right: 10px;">cancel</mat-icon>
@@ -25,11 +25,22 @@
   </mat-toolbar>
 
   <div class="content">
-    <router-outlet></router-outlet>
+    <div class="image" style="background-image: url(assets/img/bg.png);"></div>
+    <div class="router">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 
   <mat-toolbar class="footer" color="primary">
-    <span>© 2023 Infinity Aion Private Server</span>
-    <span>All other trademarks are property of their respective owners.</span>
+    <div class="content">
+      <div class="copyright">
+        <span>© 2023 Infinity Aion Private Server</span>
+        <span>All other trademarks are property of their respective owners.</span>
+      </div>
+      <div class="vote">
+        <a mat-button href="https://www.google.com/" target="_blank" class="btn-vote" style="background-image: url(assets/img/xtreme.png);"></a>
+        <a mat-button href="https://www.google.com/" target="_blank" class="btn-vote" style="background-image: url(assets/img/topg.png);"></a>
+      </div>
+    </div>
   </mat-toolbar>
 </section>

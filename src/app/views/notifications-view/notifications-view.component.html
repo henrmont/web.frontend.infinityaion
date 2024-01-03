@@ -1,3 +1,13 @@
 <section>
-  <app-notifications-list></app-notifications-list>
+  <mat-list style="width: 600px;">
+    @for (item of notifications; track item.id) {
+      @defer (on viewport) {
+        <app-notification-item [item]="item"></app-notification-item>
+      } @placeholder {
+        <div>Carregando...</div>
+      }
+    }
+  </mat-list>
+
+  <!-- <app-notifications-list></app-notifications-list> -->
 </section>

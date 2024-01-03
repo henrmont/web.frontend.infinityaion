@@ -1,6 +1,7 @@
 :host {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   width: 100%;
 }
@@ -18,4 +19,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  h1 {
+    background-image: linear-gradient(to bottom, #989898, #06315b);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+  }
+
+  img {
+    width: 200px;
+  }
 }
